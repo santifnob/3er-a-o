@@ -1,0 +1,4 @@
+DUDAS: 
+1- Mejor manejar los diferentes metodos del menu mandando un objeto product inicializado con los datos necesarios
+ y retorneandolo tambien? Asi poder reutilizar codigo de manera mas eficiente
+2- Las conexiones se podria hacer desde el main y pasarlo con parametros a los metodos asi no hacer una conex por cada metodo?
