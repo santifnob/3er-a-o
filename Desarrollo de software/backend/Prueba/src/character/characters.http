@@ -1,0 +1,49 @@
+### OBTENER TODOS LOS CHARACTERS
+GET http://localhost:3000/api/characters
+
+### OBTENER UN CHARACTER MEDIANTE SU ID. (Importante agregar otro app.get dentro del index 
+###que responda a esta peticion en esta ruta)
+GET http://localhost:3000/api/characters/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+
+### Crear un nuevo character
+POST http://localhost:3000/api/characters
+Content-Type: application/json
+
+{
+  "name": "Atila",
+  "characterClass": "warrior",
+  "items": ["bow","arrow"],
+  "attack": 10,
+  "mana": 10,
+  "hp": 10,
+  "level": 1
+}
+
+### modificar un character (PUT - recurso completo e idempotente)
+PUT http://localhost:3000/api/characters/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+Content-Type: application/json
+
+{
+  "name": "Anakin Skywalker",
+  "characterClass": "Fallen Jedi",
+  "items": ["light Saber","Death star"],
+  "attack": 110,
+  "mana": 500,
+  "hp": 100,
+  "level": 11
+}
+
+### modificar un character (PATCH - recurso parcial)
+
+PATCH http://localhost:3000/api/characters/a02b91bc-3769-4221-beb1-d7a3aeba7dad
+Content-Type: application/json
+
+{
+  "name": "Anakin Skywalker",
+  "characterClass": "Fallen Jedi",
+  "items": ["light Saber","X-Wing"],
+  "level": 12
+}
+
+### borrar un character
+DELETE http://localhost:3000/api/characters/a02b91bc-3769-4221-beb1-d7a3aeba7dad

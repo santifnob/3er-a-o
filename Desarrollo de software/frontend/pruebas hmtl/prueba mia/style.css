@@ -1,0 +1,31 @@
+body{
+  background-color: bisque;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.claseGeneral{
+  padding: 20px;
+  background-color: lightcyan;
+}
+
+#div1{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 5px;
+  background-color: lightyellow;
+}
+#div1 h1{
+  color: gray;
+  text-align: center;
+}
+#div1 p{
+  color:chartreuse;
+}
+
+
+#div2{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+
+
