@@ -1,0 +1,27 @@
+GET http://localhost:3000/TipoCarga
+
+###POST 
+POST http://localhost:3000/TipoCarga/
+Content-Type: application/json
+
+{
+  "id": 4,
+  "nombre": "Relojes",
+  "descripcion": "contrabando"
+}
+
+###Actualizar 
+PUT http://localhost:3000/TipoCarga/3
+Content-Type: application/json
+
+{
+  "id": 3,
+  "nombre": "Oro",
+  "descripcion": "Muy Valioso"
+}
+
+###Remove
+DELETE http://localhost:3000/TipoCarga/3
+
+###Fin Onde
+GET http://localhost:3000/TipoCarga/3
