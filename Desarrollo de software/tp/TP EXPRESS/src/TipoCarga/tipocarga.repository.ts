@@ -51,13 +51,15 @@ export class TipoCargaRepository implements IRepository<TipoCarga>{
 
   public update(item: TipoCarga): TipoCarga | undefined {
     const i = tipoCargas.findIndex((t) => t.getId() === item.getId())
-    let unTipoCarga = undefined
-    if(i !== -1){
-      unTipoCarga = tipoCargas[i]
-      tipoCargas[i] = item
-    }
+    let nuevoTipoCarga:TipoCarga
 
-    return unTipoCarga
+    if(i !== -1){
+      //nuevoTipoCarga = {...tipoCargas[i], ...item} as TipoCarga
+      tipoCargas[i] = {...tipoCargas[i], ...item} as TipoCarga
+      //tipoCargas[i]=nuevoTipoCarga
+    }
+    //return nuevoTipoCarga
+    return tipoCargas[i]
   }
 
 
