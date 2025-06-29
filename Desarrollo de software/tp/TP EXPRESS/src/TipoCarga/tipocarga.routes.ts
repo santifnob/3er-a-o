@@ -7,5 +7,5 @@ TipoCargaRouter.get('/', findAll)
 TipoCargaRouter.get('/:id', findOne)
 TipoCargaRouter.post('/', sanitizeTipoCargaInput, add)
 TipoCargaRouter.put('/:id', sanitizeTipoCargaInput, update)
-TipoCargaRouter.delete('/:id', sanitizeTipoCargaInput,remove)
+TipoCargaRouter.delete('/:id', remove)
 

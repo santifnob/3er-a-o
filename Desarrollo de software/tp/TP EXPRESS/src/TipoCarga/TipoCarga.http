@@ -5,23 +5,21 @@ POST http://localhost:3000/TipoCarga/
 Content-Type: application/json
 
 {
-  "id": 4,
-  "nombre": "Relojes",
-  "descripcion": "contrabando"
+  "nombre": "Muebles",
+  "descripcion": "Pesado"
 }
 
 ###Actualizar 
-PUT http://localhost:3000/TipoCarga/3
+PUT http://localhost:3000/TipoCarga/6860b8996bd3d09a98c60682
 Content-Type: application/json
 
 {
-  "id": 3,
-  "nombre": "Oro",
-  "descripcion": "Muy Valioso"
+  "nombre": "Saphiro",
+  "descripcion": "Extremadaente lujoso"
 }
 
 ###Remove
-DELETE http://localhost:3000/TipoCarga/3
+DELETE http://localhost:3000/TipoCarga/6860b8996bd3d09a98c60682
 
 ###Fin Onde
-GET http://localhost:3000/TipoCarga/3
+GET http://localhost:3000/TipoCarga/6860757ac8dad72bd03244ce

@@ -1,13 +1,16 @@
+import { ObjectId } from "mongodb"
+
 export class TipoCarga{
   constructor(
-    private id: number,
-    private nombre: string,
-    private descripcion: string
+    //private id: number,
+    public nombre: string,
+    public descripcion: string,
+    public _id?: ObjectId
   ) {}
 
-  public getId(){
-    return this.id
-  }
+  // public getId(){
+  //   return this.id
+  // }
   
   public getDescripcion(){
     return this.descripcion

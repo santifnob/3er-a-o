@@ -7,7 +7,9 @@ const characters = db.collection<Character>('characters')
 
 export class CharacterRepository implements Repository<Character> {
   public async findAll(): Promise<Character[] | undefined> {
-    return await characters.find().toArray()
+    let varPrueba = await characters.find().toArray()
+    console.log(varPrueba)
+    return varPrueba
   }
 
   public async findOne(item: { id: string }): Promise<Character | undefined> {

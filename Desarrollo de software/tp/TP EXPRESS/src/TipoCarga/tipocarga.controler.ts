@@ -6,24 +6,26 @@ import { Request, Response, NextFunction } from "express";
 const repository = new TipoCargaRepository()
 
 export function sanitizeTipoCargaInput(req:Request, res:Response, next: NextFunction){
-  req.body.sanitizedInput = {
-    id: req.body.id,
-    nombre: req.body.nombre,
-    descripcion: req.body.descripcion,
-  };
-  Object.keys(req.body.sanitizedInput).forEach(key => {
-    if(req.body.sanitizedInput[key] === undefined){delete req.body.sanitizedInput[key]}
-  })
-   
+  
+  req.body.sanitizedInput = {} 
+  req.body.sanitizedInput._id = req.params.id
+  
+  if(req.body.nombre != undefined){
+    req.body.sanitizedInput.nombre = req.body.nombre 
+  }
+  
+  if(req.body.descripcion != undefined){
+    req.body.sanitizedInput.descripcion = req.body.descripcion 
+  } 
   next();
 }
 
-export function findAll(req:Request, res:Response){
-  res.json({data: repository.findAll()});
+export async function findAll(req:Request, res:Response){
+  res.json({data: await repository.findAll()});
 }
 
-export function findOne(req:Request, res:Response){
-  const unTipo = repository.findOne({id: Number(req.params.id)})
+export async function findOne(req:Request, res:Response){
+  const unTipo = await repository.findOne({id: req.params.id})
   if(unTipo === undefined){
     res.status(404).send({message: 'Tipo carga no encontrado'})
     return
@@ -31,20 +33,20 @@ export function findOne(req:Request, res:Response){
   res.json({data: unTipo})
 }
 
-export function add(req: Request, res:Response){
+export async function add(req: Request, res:Response){
   const unTipo = new TipoCarga(
-    req.body.sanitizedInput.id, req.body.sanitizedInput.nombre, req.body.sanitizedInput.descripcion
+    req.body.sanitizedInput.nombre, req.body.sanitizedInput.descripcion
   )
 
-  const t = repository.add(unTipo)
+  const t = await repository.add(unTipo)
   res.status(201).send({message: "Tipo carga creado", data: t})
   return
 }
 
-export function update(req: Request,res:Response) {
-  req.body.sanitizedInput.id = Number(req.params.id)
-  const unTipo = repository.update(req.body.sanitizedInput)
-
+export async function update(req: Request,res:Response) {
+  
+  const unTipo = await repository.update(req.body.sanitizedInput)
+  console.log(unTipo)
   if(unTipo === undefined){res.status(404).send({message: "Tipo Carga no encontrado"})
     return}
 
@@ -53,9 +55,9 @@ export function update(req: Request,res:Response) {
   return
 }
 
-export function remove(req: Request,res:Response){
+export async function remove(req: Request,res:Response){
   
-  const unTipo  = repository.delete({id: Number(req.body.sanitizedInput.id)})
+  const unTipo  = await repository.delete({id: req.params.id})
   
   if(unTipo === undefined){
     res.status(404).send({message: "Tipo Carga no encontrada"})
